@@ -1,7 +1,31 @@
-<h1>Welcome to <%= @group.name %> </h1>
+<div class="topbar">
+	<h3><%= @group.name %></h3>
 
-<form action="/listings" method="POST">
-	<input type="hidden" name="group_id" value="<%= @group.id %>">
-	<input type="url" name="url">
-	<input type="submit" value="Add a listing">
-</form>
+	<% @group.users.each do |user| %>
+		<span class="userpic">
+			<img src="<%= user.picture_url %>"></img>
+		</span>
+	<% end %>
+</div>
+
+<div class="left sidebar">
+	<button id="invite">Invite a Housemate</button>
+
+	<form id="add-listing" action="/listings" method="POST">
+		<input type="hidden" name="group_id" value="<%= @group.id %>">
+		<input type="hidden" name="added_by" value="<%= @user.id %>">
+		<input type="url" name="url">
+		<input type="submit" value="Add a listing">
+	</form>
+</div>
+
+<div class="center">
+	<div id="listings">
+		<ul class="deck">
+			<% @group.listings.each do |listing| %>
+				<% @listing = listing %>
+				<%= erb :_listing %>
+			<% end %>
+		</ul>
+	</div>
+</div>

@@ -18,6 +18,9 @@ gem 'rake'
 
 gem 'shotgun'
 
+#Flash for displaying one-off errors and notices
+gem 'rack-flash3'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
