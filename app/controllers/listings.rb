@@ -1,4 +1,4 @@
 post '/listings' do
-	Listing.create(params)
-	erb :_listing
+	@listing = Listing.create(params)
+	erb :_listing, layout: false
 end

@@ -8,7 +8,7 @@ $(document).ready(function () {
             xfbml: true // parse XFBML
         });
 
-        addEventListeners();
+        bindListeners();
     };
 
     // Load the SDK Asynchronously
@@ -27,7 +27,7 @@ $(document).ready(function () {
 
 });
 
-var addEventListeners = function () {
+var addFBListener = function () {
     FB.Event.subscribe('auth.login', function (response) {
         if (response.status === 'connected') {
             getUserData(response);
@@ -42,6 +42,20 @@ var addEventListeners = function () {
         }
     });
 };
+
+var addListingSubmitListener = function(){
+    $('#main').on('submit', "#add-listing", addListing)
+}
+
+var addInviteListener = function(){
+    $('#main').on('click', '#invite', sendInvite)
+}
+
+var bindListeners = function(){
+    addFBListener()
+    addListingSubmitListener()
+    addInviteListener()
+}
 
 
 var getUserData = function (response) {
@@ -71,31 +85,27 @@ var loginOrCreateUser = function(userData){
     });
 }
 
+var addListing = function(event){
+    event.preventDefault()
+    var listingRequest = $.ajax({
+        url: this.action,
+        method: this.method,
+        data: $(this).serialize()
+    })
 
+    listingRequest.done(appendListing)
+}
 
-// AS-YET-UNIMPLEMENTED CODE
+var appendListing = function(response){
+    $('#listings .deck').prepend(response)
+}
 
+var sendInvite = function () {
+    var groupNumber = window.location.pathname.split('/').pop()
+    var groupURL = "http://home-base-app.herokuapp.com/join?group=" + groupNumber
 
-
-
-// var sendInvite = function () {
-//     groupURL = "/join/group/" + current_user().group_id
-
-//     FB.ui({
-//         method: 'send',
-//         link: groupURL
-//     });
-// }
-
-// var grabUserpic = function (userID) {
-//     FB.api(userID, {
-//         fields: 'picture'
-//     }, function (response) {
-//         picUrl = response.picture.data.url
-//         userPic = $("<img src=''>").attr("src", picUrl)
-//     })
-// }
-
-// var appendUserPic = function (parentNode, userID) {
-//     $(parentNode).append(grabUserpic(userID))
-// }
+    FB.ui({
+        method: 'send',
+        link: groupURL
+    })
+}

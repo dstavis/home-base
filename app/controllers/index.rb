@@ -2,6 +2,7 @@ get '/' do
 	unless authenticated?
 		redirect '/auths/new'
 	else
-		erb :index
+		@user = current_user
+		redirect "/groups/#{current_user.group.id}"
 	end
 end

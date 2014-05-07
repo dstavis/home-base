@@ -20,6 +20,9 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 
+#Flash for errors and notices
+require 'rack-flash' 
+
 # ///Version 2///
 if development?
 	require "pry" 
