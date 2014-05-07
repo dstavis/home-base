@@ -4,9 +4,10 @@ end
 
 post '/auths' do
 	if user = User.find_by_email(params['email'])
-		session[:user_id] = user.id
 	else
 		user = User.create(params)
-		session[:user_id] = user.id
 	end
+	session[:user_id] = user.id
+	content_type :json
+	return user.to_json
 end

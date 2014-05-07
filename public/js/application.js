@@ -48,12 +48,11 @@ var getUserData = function (response) {
     console.log("Successfully authenticated. Now creating user data.")
 
     FB.api('/me?fields=email, picture, first_name', function (response) {
-        
-        debugger
-        var userData = {
+            var userData = {
             email: response.email,
             facebook_id: response.id,
-            picture_url: response.picture.data.url
+            picture_url: response.picture.data.url,
+            first_name: response.first_name
         };
         console.log("Successfully created user data. Now logging in.")
         loginOrCreateUser(userData);
@@ -68,8 +67,7 @@ var loginOrCreateUser = function(userData){
         method: 'post',
         data: userData
     }).done(function (response) {
-    	debugger
-        // window.location.href = userPage;
+        window.location.href = '/groups/new';
     });
 }
 
