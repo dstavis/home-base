@@ -1,0 +1,8 @@
+<img src="<%= @user.picture_url %>"></img><h1>Welcome, <%= @user.first_name %>!</h1>
+
+<h2>You're not in a hunting party...want to start your own?</h2>
+
+<form action="/groups" method="POST">
+	<input type="text" placeholder="Group name" name="name">
+	<input type="submit" value="Submit">
+</form>
