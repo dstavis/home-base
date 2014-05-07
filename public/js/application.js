@@ -30,7 +30,7 @@ $(document).ready(function () {
 var addEventListeners = function () {
     FB.Event.subscribe('auth.login', function (response) {
         if (response.status === 'connected') {
-            loggedInHandler(response);
+            getUserData(response);
         } else if (response.status === 'not_authorized') {
             FB.login(function(){}, {
                 scope: 'email'
@@ -44,10 +44,12 @@ var addEventListeners = function () {
 };
 
 
-var loggedInHandler = function (response) {
+var getUserData = function (response) {
     console.log("Successfully authenticated. Now creating user data.")
 
-    FB.api('/me?fields=email, picture', function (response) {
+    FB.api('/me?fields=email, picture, first_name', function (response) {
+        
+        debugger
         var userData = {
             email: response.email,
             facebook_id: response.id,
