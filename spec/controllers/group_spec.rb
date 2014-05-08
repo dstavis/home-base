@@ -63,3 +63,23 @@ describe "get /groups/:id route" do
   end
 end
 
+describe "post /groups route" do
+  it "creates a new group in database" do
+    ## Arrange
+    User.destroy_all
+    Group.destroy_all
+    @user = User.create(email: "david@stavis.com",
+                        first_name: "David",
+                        picture_url: "lasturlwastoolong.com",
+                        facebook_id: 1)
+    fake_session = { 'rack.session' => { user_id: @user.id } }
+    params = { name: "Cool Group" }
+
+    ## Act
+    post '/groups', params, fake_session
+
+    ## Assert
+    expect(User.find(@user.id).group.name).to eq("Cool Group")
+  end
+
+end
