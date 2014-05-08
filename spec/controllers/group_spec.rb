@@ -18,7 +18,6 @@ describe "get /groups/new route" do
     ## Assert
     expect(last_response.body).to include("#{@user.first_name}")
   end
-
 end
 
 describe "get /groups/:id route" do
@@ -64,7 +63,7 @@ describe "get /groups/:id route" do
 end
 
 describe "post /groups route" do
-  it "creates a new group in database" do
+  it "creates a new group for user" do
     ## Arrange
     User.destroy_all
     Group.destroy_all
@@ -81,5 +80,4 @@ describe "post /groups route" do
     ## Assert
     expect(User.find(@user.id).group.name).to eq("Cool Group")
   end
-
 end
