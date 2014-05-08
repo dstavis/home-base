@@ -62,3 +62,4 @@ describe "get /groups/:id route" do
     expect(last_response.body).to include("#{@user.picture_url}")
   end
 end
+
