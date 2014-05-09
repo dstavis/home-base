@@ -1,4 +1,4 @@
-<div class="topbar">
+<section class="topbar">
 	<h3><%= @group.name %></h3>
 
 	<% @group.users.each do |user| %>
@@ -6,9 +6,9 @@
 			<img src="<%= user.picture_url %>"></img>
 		</span>
 	<% end %>
-</div>
+</section>
 
-<div class="left sidebar">
+<section class="left sidebar">
 	<button id="invite">Invite a Housemate</button>
 
 	<form id="add-listing" action="/listings" method="POST">
@@ -17,7 +17,7 @@
 		<input type="url" name="url">
 		<input type="submit" value="Add a listing">
 	</form>
-</div>
+</section>
 
 <div class="center">
 	<div id="listings">
