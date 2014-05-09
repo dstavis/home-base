@@ -9,14 +9,19 @@
 </section>
 
 <section class="sidebar two columns alpha">
-	<button id="invite">Invite a Housemate</button>
-
 	<form id="add-listing" action="/listings" method="POST">
 		<input type="hidden" name="group_id" value="<%= @group.id %>">
 		<input type="hidden" name="added_by" value="<%= @user.id %>">
-		<input type="url" name="url">
+		<input type="url" name="url" placeholder="Paste URL here">
 		<input type="submit" value="Add a listing">
 	</form>
+
+	<!-- <button id="invite">Group Invite URL</button> -->
+	<button id="invite">Invite a Housemate</button>
+	How to invite:
+	Press invite and paste group URL<br /><br />
+	Group Invite URL
+	<textarea id="invite-url" rows='2'>http://home-base-app.herokuapp.com/join?group=<%= @group.id %></textarea>
 </section>
 
 <div class="center fourteen columns omega">
