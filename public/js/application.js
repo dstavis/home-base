@@ -1,14 +1,24 @@
 $(document).ready(function () {
 
     window.fbAsyncInit = function () {
-        FB.init({
-            appId: '679243185473224', // App ID
-            channelUrl: 'http://home-base-app.herokuapp.com', // Channel File
-            cookie: true, // enable cookies to allow the server to access the session
-            xfbml: true // parse XFBML
-        });
+        
+        var environmentVarRequest = $.ajax({
+            url: '/env',
+            type: 'get'
+        })
 
-        bindListeners();
+        environmentVarRequest.done(function(response){
+            var ENV = {fb_app_id: Number(response['fb_app_id']), fb_channel_url: response['fb_channel_url']}
+            
+            FB.init({
+                appId: ENV['fb_app_id'], //Heroku: 679243185473224 Development: 839142646102346
+                channelUrl: ENV['fb_channel_url'],//http://localhost:9393   //http://home-base-app.herokuapp.com', // Channel File
+                cookie: true, // enable cookies to allow the server to access the session
+                xfbml: true // parse XFBML
+            });
+
+            bindListeners();  
+        })
     };
 
     // Load the SDK Asynchronously

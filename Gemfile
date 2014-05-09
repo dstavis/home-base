@@ -21,6 +21,9 @@ gem 'shotgun'
 #Flash for displaying one-off errors and notices
 gem 'rack-flash3'
 
+#dotenv for hiding app id in env variable
+gem 'dotenv'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

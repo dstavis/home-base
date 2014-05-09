@@ -23,6 +23,9 @@ require 'erb'
 #Flash for errors and notices
 require 'rack-flash' 
 
+require 'dotenv'
+Dotenv.load
+
 # ///Version 2///
 if development?
 	require "pry" 
