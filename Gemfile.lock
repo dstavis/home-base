@@ -24,6 +24,9 @@ GEM
     coderay (1.1.0)
     daemons (1.1.9)
     diff-lcs (1.2.4)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
     eventmachine (1.0.3)
     factory_girl (4.2.0)
       activesupport (>= 3.0.0)
@@ -91,6 +94,7 @@ DEPENDENCIES
   activerecord
   activesupport
   capybara
+  dotenv
   factory_girl
   faker
   pg
