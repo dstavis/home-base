@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     window.fbAsyncInit = function () {
         FB.init({
-            appId: '839142646102346', // App ID
-            channelUrl: '//localhost:9393', // Channel File
+            appId: '679243185473224', // App ID
+            channelUrl: 'http://home-base-app.herokuapp.com', // Channel File
             cookie: true, // enable cookies to allow the server to access the session
             xfbml: true // parse XFBML
         });
