@@ -1,6 +1,7 @@
 <li class="card">
 	<article class="listing">
-		<ul>
+		<img href="" class="housepic"></img>
+    <ul>
 			<li>Url: <a href="<%= @listing.url %>"><%= @listing.url %></a></li>
 			<li>Added by: <%= User.find(@listing.added_by).first_name %></li>
 		</ul>

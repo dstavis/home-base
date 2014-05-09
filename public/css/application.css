@@ -1,16 +1,78 @@
-body {
-	background-color: #26B293;
+/* #Group Page Styles
+================================================== */
+
+/* #Topbar
+================================================== */
+
+section.topbar{
+  display: block;
+  border: 1px solid grey;
+  border-radius: 5px;
+  margin: 0;
+  background-color: lightgrey;
 }
 
-.fb-container{
-	width:100%;
+.topbar h1, .topbar span{
+  display: inline-block;
+}
+.topbar h1{
+  font-size: 1.4em;
+  margin-bottom: 0;
+  line-height: 0;
 }
 
-.fb-login-button{
-	margin: 0 auto;
+.topbar h2{
+  font-size: .8em;
 }
 
-.topbar{
-
+/* #Sidebar
+================================================== */
+section.sidebar {
+    display: inline-block;
+    background-color: lightgrey;
+    border: 1px solid grey;
+    overflow: hidden;
+  border-radius: 5px;
 }
 
+
+/* #Center Wall
+================================================== */
+.center{
+    display: inline-block;
+    background-color: lightgoldenrodyellow;
+    border: 1px solid grey;
+    margin: 0;
+    overflow: hidden;
+
+    border-radius: 5px;
+}
+
+.center div, .center li, .center ul, .center article{
+  display: inline-block;
+  margin:0;
+}
+
+/* #Card Module
+================================================== */
+li.card {
+  padding: 5px;
+
+  /*border: 1px goldenrod solid;*/
+  background-color: lightgoldenrodyellow;
+  display: block;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+/* #Listing Styles
+================================================== */
+.listing img.housepic{
+  height: 50px;
+  width:50px;
+}
+
+.listing li{
+  display: block;
+  margin: 0;
+}

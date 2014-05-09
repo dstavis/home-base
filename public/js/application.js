@@ -54,11 +54,11 @@ var addFBListener = function () {
 };
 
 var addListingSubmitListener = function(){
-    $('#main').on('submit', "#add-listing", addListing)
+    $('.container').on('submit', "#add-listing", addListing)
 }
 
 var addInviteListener = function(){
-    $('#main').on('click', '#invite', sendInvite)
+    $('.container').on('click', '#invite', sendInvite)
 }
 
 var bindListeners = function(){

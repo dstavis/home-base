@@ -7,23 +7,51 @@
 
 /* #Site Styles
 ================================================== */
+
+.container{
+	background-color: ;
+}
+
+/* #Layout Header
+================================================== */
+
 #layout-header{
-	background-color: white;
+	background-color: #26B293;
 }
 #layout-header h1{
+	color:white;
 	margin: 0 auto;
 	display: inline-block;
 }
 #layout-header h2{
+	color:white;
 	font-size: 17px;
 	display: inline-block;
-	float: right;
 	margin: 0;
 }
+#layout-header nav{
+	display: inline-block;
+	text-align: right;
+	float: right;
+}
+#layout-header nav a{
+	color: white;
+	display: inline-block;
+	margin-right: 10px;
+	margin: auto 10px;
+}
+body{
+	background-color: white;
+}
 
+div .container{
+	margin-bottom: 10px;
+}
 
 /* #Page Styles
 ================================================== */
+
+
 
 /* #Media Queries
 ================================================== */

@@ -1,5 +1,5 @@
-<section class="topbar">
-	<h3><%= @group.name %></h3>
+<section class="topbar sixteen columns alpha omega">
+	<h1><%= @group.name %></h1>
 
 	<% @group.users.each do |user| %>
 		<span class="userpic">
@@ -8,7 +8,7 @@
 	<% end %>
 </section>
 
-<section class="left sidebar">
+<section class="sidebar two columns alpha">
 	<button id="invite">Invite a Housemate</button>
 
 	<form id="add-listing" action="/listings" method="POST">
@@ -19,13 +19,11 @@
 	</form>
 </section>
 
-<div class="center">
+<div class="center fourteen columns omega">
 	<div id="listings">
-		<ul class="deck">
 			<% @group.listings.each do |listing| %>
 				<% @listing = listing %>
 				<%= erb :_listing %>
 			<% end %>
-		</ul>
 	</div>
 </div>
