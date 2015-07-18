@@ -4,6 +4,7 @@ end
 
 post '/auths' do
 	if user = User.find_by_email(params['email'])
+		# needs to do something? refactor for clarity
 	else
 		user = User.create(params)
 	end
